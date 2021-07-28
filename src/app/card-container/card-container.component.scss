@@ -1,0 +1,15 @@
+.card-container{
+    width: 400px;
+    font-family: 'muli';
+    display: inline-block;
+    .inner-container{
+        min-height: 600px;
+        background-color: #f5f9fc
+        ;
+        padding: 10px 0;
+        margin: 0 5px;
+    }
+    .container-title{
+        padding-top: 10px;
+    }
+}

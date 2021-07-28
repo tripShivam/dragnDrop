@@ -1,0 +1,77 @@
+<mat-card class="canban-card">  
+    <mat-card-content>
+        <mat-grid-list cols="2" rowHeight="3:1">
+            <mat-grid-tile>
+                <span style="color: #6fb263; font-size: 20px; font-weight: bold;">#{{data.sNo}}</span>
+                <span style="background-color: #e25440; padding: 2px 5px; border-radius: 4px; color: #fff; margin-left: 6px;"> {{data.payment}}</span>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <ul class="list-class" style="list-style-type: none">
+                    <li style="text-decoration: underline;"><span class="material-icons">
+                        insert_link
+                        </span>Repair Order
+                    </li>
+                    <li style="text-decoration: underline;"><span class="material-icons">
+                        insert_link
+                        </span>Invoice
+                    </li>
+                </ul>
+            </mat-grid-tile>
+            <mat-grid-tile> 
+                <ul class="list-class" style="list-style-type: none">
+                        <li><span class="material-icons">
+                            directions_car_filled
+                            </span>{{data.carName}}</li>
+                    <li><span class="material-icons">
+                        person
+                        </span>{{data.name}}</li>
+                </ul>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <ul class="list-class" style="list-style-type: none">
+                    <li style=" color: #78b66b;"> <span style=" color: #78b66b;" class="material-icons">
+                        textsms
+                        </span>Whatsapp</li>
+            </ul>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <hr>
+          <mat-grid-list cols="3" rowHeight="2:1">
+            <mat-grid-tile>
+                <ul style="list-style-type: none">
+                    <li class="canban-center-row">Invoice</li>
+                    <li>{{data.invoice}}</li>
+                </ul>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <ul style="list-style-type: none">
+                    <li class="canban-center-row">Created By</li>
+                    <li>{{data.createdBy}}</li>
+                </ul>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <ul style="list-style-type: none">
+                    <li class="canban-center-row">Completion date</li>
+                    <li>{{data.date}}</li>
+                </ul>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <hr>
+          <mat-grid-list cols="2" rowHeight="3:1">
+            <mat-grid-tile>
+                <ul style="list-style-type: none">
+                    <li style="text-transform: uppercase;">Total</li>
+                    <li style="font-size: 15px; font-weight: bold;">{{data.total}}</li>
+                </ul>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <ul style="list-style-type: none">
+                    <li style="text-transform: uppercase;">Amount Due:</li>
+                    <li style="font-size: 23px; font-weight: bold; color: #e25440">{{data.dueAmount}}</li>
+                </ul>
+            </mat-grid-tile>
+          </mat-grid-list>
+    </mat-card-content>
+</mat-card>
+
+

@@ -1,0 +1,59 @@
+<div style="padding-top: 40px;">
+    <mat-grid-list cols="4" rowHeight="700px">
+        <mat-grid-tile > 
+            <div class="card-container">
+                <h3 class="container-title">Open</h3>
+                <div class="inner-container">
+                    <div *ngIf="openItems.length > 0">
+                        <div draggable [dragScope]="'wip'" *ngFor="let item of openItems" [dragData]="item">
+                            <app-card [data]="item"> </app-card>
+                        </div>
+                    </div>
+                    <div *ngIf="openItems.length === 0">
+                        No Open items available.
+                    </div>
+                    
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="card-container">
+                <h3 class="container-title">WIP</h3>
+                <div class="inner-container" [dropScope]="'wip'" droppable (onDrop)="onItemDrop($event, 'wip')">
+                    <div *ngIf="wipItems.length > 0">
+                        <div draggable [dragScope]="'ready'" *ngFor="let item of wipItems" [dragData]="item">
+                            <app-card [data]="item"> </app-card>
+                        </div>
+                    </div>
+                    <div *ngIf="wipItems.length === 0">
+                        No WIP items available.
+                    </div>
+                    
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="card-container">
+                <h3 class="container-title">Ready</h3>
+                <div class="inner-container" [dropScope]="'ready'" droppable (onDrop)="onItemDrop($event, 'ready')">
+                    <div *ngIf="readyItems.length > 0">
+                        <div draggable [dragScope]="'due'" *ngFor="let item of readyItems" [dragData]="item">
+                            <app-card [data]="item"> </app-card>
+                        </div>
+                    </div>
+                    <div *ngIf="readyItems.length === 0">
+                        No ready items available.
+                    </div>
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="card-container">
+                <h3 class="container-title">Payment Due</h3>
+                <div class="inner-container" [dropScope]="'due'" droppable (onDrop)="onItemDrop($event, 'due')">
+                    <app-card [data]="item" *ngFor="let item of paymentDue"></app-card>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-container.component.scss']
 })
 export class CardContainerComponent implements OnInit {
+  dragItemIndex: any;
 
   constructor() { }
 
@@ -32,15 +33,20 @@ export class CardContainerComponent implements OnInit {
     // Get the dropped data here
     console.log('e.dragData', e.dragData, dropWindow)
     if(dropWindow === 'wip'){
-      this.openItems.splice(e.dragData.i, 1);
+      this.openItems.splice(this.dragItemIndex, 1);
       this.wipItems.push(e.dragData);
     } else  if(dropWindow === 'ready'){
-      this.wipItems.splice(e.dragData.i, 1);
+      this.wipItems.splice(this.dragItemIndex, 1);
       this.readyItems.push(e.dragData);
     } else  if(dropWindow === 'due'){
-      this.readyItems.splice(e.dragData.i, 1);
+      this.readyItems.splice(this.dragItemIndex, 1);
       this.paymentDue.push(e.dragData);
     } 
+}
+
+onDragStart(e: any, data: any){
+  this.dragItemIndex = data;
+  console.log('e.onDragStart', data)
 }
 
   ngOnInit(): void {

@@ -5,7 +5,7 @@
                 <h3 class="container-title">Open</h3>
                 <div class="inner-container">
                     <div *ngIf="openItems.length > 0">
-                        <div draggable [dragScope]="'wip'" *ngFor="let item of openItems" [dragData]="item">
+                        <div draggable [dragScope]="'wip'" (onDragStart)="onDragStart($event, i)" *ngFor="let item of openItems; let i = index" [dragData]="item">
                             <app-card [data]="item"> </app-card>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
                 <h3 class="container-title">WIP</h3>
                 <div class="inner-container" [dropScope]="'wip'" droppable (onDrop)="onItemDrop($event, 'wip')">
                     <div *ngIf="wipItems.length > 0">
-                        <div draggable [dragScope]="'ready'" *ngFor="let item of wipItems" [dragData]="item">
+                        <div draggable [dragScope]="'ready'" (onDragStart)="onDragStart($event, i)" *ngFor="let item of wipItems; let i = index" [dragData]="item">
                             <app-card [data]="item"> </app-card>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                 <h3 class="container-title">Ready</h3>
                 <div class="inner-container" [dropScope]="'ready'" droppable (onDrop)="onItemDrop($event, 'ready')">
                     <div *ngIf="readyItems.length > 0">
-                        <div draggable [dragScope]="'due'" *ngFor="let item of readyItems" [dragData]="item">
+                        <div draggable [dragScope]="'due'" (onDragStart)="onDragStart($event, i)" *ngFor="let item of readyItems; let i = index" [dragData]="item">
                             <app-card [data]="item"> </app-card>
                         </div>
                     </div>

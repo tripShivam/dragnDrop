@@ -30,8 +30,6 @@ export class CardContainerComponent implements OnInit {
   ];
 
   onItemDrop(e: any, dropWindow: any) {
-    // Get the dropped data here
-    console.log('e.dragData', e.dragData, dropWindow)
     if(dropWindow === 'wip'){
       this.openItems.splice(this.dragItemIndex, 1);
       this.wipItems.push(e.dragData);
